@@ -1,4 +1,4 @@
-// 文件路径：src/pages/PostPage.jsx
+// 文件路径：src/pages/PostPage.tsx
 import { useParams, Link } from 'react-router'
 import { usePosts } from '../hooks/usePosts'
 import { useFavorites } from '../context/FavoriteContext'

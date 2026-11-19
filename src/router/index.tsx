@@ -1,4 +1,4 @@
-// 文件路径：src/router/index.jsx
+// 文件路径：src/router/index.tsx
 import { createBrowserRouter } from 'react-router'
 import App from '../App'
 import HomePage from '../pages/HomePage'

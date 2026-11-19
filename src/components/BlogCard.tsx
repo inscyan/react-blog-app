@@ -1,11 +1,20 @@
-// 文件路径：src/components/BlogCard.jsx
+// 文件路径：src/components/BlogCard.tsx
+import { type MouseEvent } from 'react'
 import { Link } from 'react-router'
 import { useFavorites } from '../context/FavoriteContext'
 
-function BlogCard({ id, title, summary, date, category }) {
+interface BlogCardProps {
+  id: number
+  title: string
+  summary: string
+  date: string
+  category: string
+}
+
+function BlogCard({ id, title, summary, date, category }: BlogCardProps) {
   const { isFavorite, toggleFavorite } = useFavorites()
 
-  function handleFavorite(e) {
+  function handleFavorite(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault()   // 阻止 Link 跳转
     toggleFavorite(id)
   }

@@ -1,4 +1,4 @@
-// 文件路径：src/pages/HomePage.jsx
+// 文件路径：src/pages/HomePage.tsx
 import { usePosts } from '../hooks/usePosts'
 import BlogCard from '../components/BlogCard'
 import CategoryFilter from '../components/CategoryFilter'

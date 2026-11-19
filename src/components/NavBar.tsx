@@ -1,4 +1,4 @@
-// 文件路径：src/components/NavBar.jsx
+// 文件路径：src/components/NavBar.tsx
 import { useFavorites } from '../context/FavoriteContext'
 
 function NavBar() {

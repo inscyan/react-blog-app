@@ -1,4 +1,4 @@
-// 文件路径：src/hooks/useDarkMode.js
+// 文件路径：src/hooks/useDarkMode.ts
 import { useState, useEffect } from 'react'
 
 export function useDarkMode() {

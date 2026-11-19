@@ -1,10 +1,19 @@
-// 文件路径：src/hooks/usePosts.js
+// 文件路径：src/hooks/usePosts.ts
 import { useState, useEffect, useMemo } from 'react'
 
+export interface Post {
+  id: number
+  title: string
+  summary: string
+  content: string
+  category: string
+  date: string
+}
+
 export function usePosts() {
-  const [articles, setArticles] = useState([])
+  const [articles, setArticles] = useState<Post[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<string | null>(null)
   const [activeCategory, setActiveCategory] = useState('全部')
   const [keyword, setKeyword] = useState('')
 
@@ -17,10 +26,10 @@ export function usePosts() {
       try {
         const res = await fetch('/posts.json')
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
-        const data = await res.json()
+        const data = (await res.json()) as Post[]
         if (!cancelled) setArticles(data)
       } catch (err) {
-        if (!cancelled) setError(err.message)
+        if (!cancelled) setError(err instanceof Error ? err.message : String(err))
       } finally {
         if (!cancelled) setIsLoading(false)
       }
@@ -51,13 +60,12 @@ export function usePosts() {
   }, [articles, activeCategory, keyword])
 
   // 根据 ID 查找文章
-  function getArticleById(id) {
+  function getArticleById(id: string | number | undefined) {
     return articles.find(a => a.id === Number(id))
   }
 
   // 重新加载
   function refetch() {
-    // 触发 useEffect 的另一种方式：用 key 或增强 state
     window.location.reload()
   }
 

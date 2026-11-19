@@ -1,4 +1,4 @@
-// 文件路径：src/App.jsx
+// 文件路径：src/App.tsx
 import { Outlet } from 'react-router'
 import NavBar from './components/NavBar'
 import './App.css'
